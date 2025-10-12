@@ -1,0 +1,106 @@
+
+State Machine - |action_vip|I2C_AV_Config:I2C_AV_Config_inst|mSetup_ST
+Name mSetup_ST.0000 mSetup_ST.0010 mSetup_ST.0001 
+mSetup_ST.0000 0 0 0 
+mSetup_ST.0001 1 0 1 
+mSetup_ST.0010 1 1 0 
+
+State Machine - |action_vip|video_process:TV_Box|rd_sdram:rd_sdram_inst|state_d
+Name state_d.FSM_AROUND state_d.RD_BURST state_d.RD_REQ state_d.IDLE 
+state_d.IDLE 0 0 0 0 
+state_d.RD_REQ 0 0 1 1 
+state_d.RD_BURST 0 1 0 1 
+state_d.FSM_AROUND 1 0 0 1 
+
+State Machine - |action_vip|video_process:TV_Box|rd_sdram:rd_sdram_inst|curr_state
+Name curr_state.FSM_AROUND curr_state.RD_BURST curr_state.RD_REQ curr_state.IDLE 
+curr_state.IDLE 0 0 0 0 
+curr_state.RD_REQ 0 0 1 1 
+curr_state.RD_BURST 0 1 0 1 
+curr_state.FSM_AROUND 1 0 0 1 
+
+State Machine - |action_vip|video_process:TV_Box|sdram_if:sdram_if_0|sdr_state_d2
+Name sdr_state_d2.000000000000000000 sdr_state_d2.S_PRE_NOP sdr_state_d2.S_PRE sdr_state_d2.S_WR_END sdr_state_d2.S_RD_COL sdr_state_d2.S_WR_COL sdr_state_d2.S_RD_ACT_NOP sdr_state_d2.S_RD_ACT sdr_state_d2.S_WR_ACT_NOP sdr_state_d2.S_WR_ACT sdr_state_d2.S_IDLE_REF_NOP sdr_state_d2.S_IDLE_REF sdr_state_d2.S_MRS_NOP sdr_state_d2.S_MRS sdr_state_d2.S_INIT_REF_NOP sdr_state_d2.S_INIT_REF sdr_state_d2.S_INIT_PRE_NOP sdr_state_d2.S_INIT_PRE sdr_state_d2.S_IDLE 
+sdr_state_d2.000000000000000000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d2.S_IDLE 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sdr_state_d2.S_INIT_PRE 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+sdr_state_d2.S_INIT_PRE_NOP 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 
+sdr_state_d2.S_INIT_REF 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 
+sdr_state_d2.S_INIT_REF_NOP 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 
+sdr_state_d2.S_MRS 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 
+sdr_state_d2.S_MRS_NOP 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 
+sdr_state_d2.S_IDLE_REF 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 
+sdr_state_d2.S_IDLE_REF_NOP 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 
+sdr_state_d2.S_WR_ACT 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 
+sdr_state_d2.S_WR_ACT_NOP 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d2.S_RD_ACT 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d2.S_RD_ACT_NOP 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d2.S_WR_COL 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d2.S_RD_COL 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d2.S_WR_END 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d2.S_PRE 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d2.S_PRE_NOP 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+State Machine - |action_vip|video_process:TV_Box|sdram_if:sdram_if_0|sdr_state_d
+Name sdr_state_d.000000000000000000 sdr_state_d.S_PRE_NOP sdr_state_d.S_PRE sdr_state_d.S_WR_END sdr_state_d.S_RD_COL sdr_state_d.S_WR_COL sdr_state_d.S_RD_ACT_NOP sdr_state_d.S_RD_ACT sdr_state_d.S_WR_ACT_NOP sdr_state_d.S_WR_ACT sdr_state_d.S_IDLE_REF_NOP sdr_state_d.S_IDLE_REF sdr_state_d.S_MRS_NOP sdr_state_d.S_MRS sdr_state_d.S_INIT_REF_NOP sdr_state_d.S_INIT_REF sdr_state_d.S_INIT_PRE_NOP sdr_state_d.S_INIT_PRE sdr_state_d.S_IDLE 
+sdr_state_d.000000000000000000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d.S_IDLE 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sdr_state_d.S_INIT_PRE 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+sdr_state_d.S_INIT_PRE_NOP 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 
+sdr_state_d.S_INIT_REF 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 
+sdr_state_d.S_INIT_REF_NOP 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 
+sdr_state_d.S_MRS 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 
+sdr_state_d.S_MRS_NOP 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 
+sdr_state_d.S_IDLE_REF 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 
+sdr_state_d.S_IDLE_REF_NOP 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 
+sdr_state_d.S_WR_ACT 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 
+sdr_state_d.S_WR_ACT_NOP 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d.S_RD_ACT 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d.S_RD_ACT_NOP 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d.S_WR_COL 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d.S_RD_COL 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d.S_WR_END 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d.S_PRE 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state_d.S_PRE_NOP 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+State Machine - |action_vip|video_process:TV_Box|sdram_if:sdram_if_0|sdr_state
+Name sdr_state.S_PRE_NOP sdr_state.S_PRE sdr_state.S_WR_END sdr_state.S_RD_COL sdr_state.S_WR_COL sdr_state.S_RD_ACT_NOP sdr_state.S_RD_ACT sdr_state.S_WR_ACT_NOP sdr_state.S_WR_ACT sdr_state.S_IDLE_REF_NOP sdr_state.S_IDLE_REF sdr_state.S_MRS_NOP sdr_state.S_MRS sdr_state.S_INIT_REF_NOP sdr_state.S_INIT_REF sdr_state.S_INIT_PRE_NOP sdr_state.S_INIT_PRE sdr_state.S_IDLE 
+sdr_state.S_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sdr_state.S_INIT_PRE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+sdr_state.S_INIT_PRE_NOP 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+sdr_state.S_INIT_REF 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+sdr_state.S_INIT_REF_NOP 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+sdr_state.S_MRS 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+sdr_state.S_MRS_NOP 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+sdr_state.S_IDLE_REF 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+sdr_state.S_IDLE_REF_NOP 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+sdr_state.S_WR_ACT 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+sdr_state.S_WR_ACT_NOP 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+sdr_state.S_RD_ACT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+sdr_state.S_RD_ACT_NOP 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+sdr_state.S_WR_COL 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sdr_state.S_RD_COL 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sdr_state.S_WR_END 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sdr_state.S_PRE 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sdr_state.S_PRE_NOP 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |action_vip|video_process:TV_Box|wr_sdram:wr_sdram_inst|state_cur
+Name state_cur.STATE_NOP state_cur.BURST state_cur.WR_REQ state_cur.IDLE 
+state_cur.IDLE 0 0 0 0 
+state_cur.WR_REQ 0 0 1 1 
+state_cur.BURST 0 1 0 1 
+state_cur.STATE_NOP 1 0 0 1 
+
+State Machine - |action_vip|video_process:TV_Box|wr_sdram:wr_sdram_inst|state_d
+Name state_d.STATE_NOP state_d.BURST state_d.WR_REQ state_d.IDLE 
+state_d.IDLE 0 0 0 0 
+state_d.WR_REQ 0 0 1 1 
+state_d.BURST 0 1 0 1 
+state_d.STATE_NOP 1 0 0 1 
+
+State Machine - |action_vip|video_process:TV_Box|bt656_rx:bt656_rx_inst|time_ref
+Name time_ref.ff0000 time_ref.ff00 time_ref.ff time_ref.idle 
+time_ref.idle 0 0 0 0 
+time_ref.ff 0 0 1 1 
+time_ref.ff00 0 1 0 1 
+time_ref.ff0000 1 0 0 1 

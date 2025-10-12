@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Jun 07 18:20:58 2015
+Quartus II 64-Bit Version : 14.1.0 Build 186 12/03/2014 SJ Full Version
+Revision Name : VIP_PAL
+Top-level Entity Name : action_vip
+Family : Cyclone IV E
+Total logic elements : 1,253
+    Total combinational functions : 977
+    Dedicated logic registers : 758
+Total registers : 758
+Total pins : 72
+Total virtual pins : 0
+Total memory bits : 24,576
+Embedded Multiplier 9-bit elements : 5
+Total PLLs : 1

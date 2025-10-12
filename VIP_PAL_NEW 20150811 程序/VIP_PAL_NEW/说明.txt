@@ -1,0 +1,30 @@
+20150426
+tvp5150 测试 ok
+
+
+20150811 完善
+1、vip 板卡测试ok
+2、ep4ce6+sdram+vga
+3、qii 14.1
+4、编译好的jic或sof可以直接子啊vip101上使用
+
+
+参考博客地址
+
+
+http://www.cnblogs.com/ccjt/p/4456474.html
+
+
+店铺地址
+
+https://ccjt.taobao.com/
+
+主营：摄像头、视频采集、视频处理、fpga、usb等评估套件、高速相机、物联网周边
+
+
+技术交流qq群：层层惊涛 26210916
+
+
+群主：奇迹再现
+
+

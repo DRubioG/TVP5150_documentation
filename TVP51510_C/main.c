@@ -1,0 +1,125 @@
+//#include "usart.h"
+#include "tick.h" 
+#include "can.h"
+#include "SDcard.h"
+//#include "eeprom.h"
+#include "sdcard.h"
+#include "DCMI.H"
+#include "I2C_Stand.h"
+#include "LCD.h"
+ u16 can_tx_status=0; 
+ u32 FilterId=0,FilterMaskId=0;  //期望的标识符，掩码--定义必需匹配的标识符，  如FilterId=0x0000f0f0,FilterMaskId=0x0000f000,则表示收到的表示符第12-15位必需为1
+ u16 m;
+// u8 *Messages="0123456789ABCDEFFEDCBA98765432100123456789ABCDEFFEDCBA98765432100123456789ABCDEFFEDCBA98765432100123456789ABCDEFFEDCBA9876543210";
+u8 Messages[]={0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x0b,0x0c,0x0d,0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d,0x1e,0x1f,0x20,0x21,0x22,0x23,0x24,0x00,0x00,0x00,0x00,0x29,0x00,0x00,0x00,0x00,0x00,0x2f,0x31,0x32,0x33,0x34,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x0b,0x0c,0x0d,0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d,0x1e,0x1f,0x20,0x21,0x22,0x23,0x24,0x00,0x00,0x00,0x00,0x29,0x00,0x00,0x00,0x00,0x00,0x2f,0x31,0x32,0x33,0x34};
+u8 String[]={'S','E','N','T','O','K','\r','\n'};
+
+
+/*******************************************************************************
+* Function Name  : int main(void)
+* Description    : Main program.
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+int i=0;
+u8 readbuffer[100] ;
+ SD_Error error;
+ 
+
+ 
+ 
+ 
+ 
+ 
+u8 Cmd_5150[][2] = 
+{
+
+	{0x00, 0x00},
+//	{0x01, 0x15},
+//	{0x02, 0x00},	
+
+	{0x03, 0x0d},
+//	{0x04, 0xC0},
+
+//	{0x06, 0x10},				
+//	{0x07, 0x60},	
+//	{0x08, 0x00},	
+//	{0x09, 0x80},	
+
+
+
+	{0x0D, 0x40},	
+
+// 	{0x18, 0x00},	
+// 	{0x19, 0x00},		
+//
+//	{0x1b, 0x15},		
+//	{0x1D, 0x14},		
+//	{0x28, 0x02},		
+	
+};
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+int main(void)
+{
+  
+//  SDIO_NVIC_Config();//使能SDIO的中断，主要是为判断数据传输以及CMD传输是否完成
+//  DMA_NVIC_Config();//使能DMA的中断，判断，DMA传输数据到SDIO或者sdio数据读出是否完成
+//  error =  Init_sdcard();
+//  if(error == SD_OK)
+//  {
+//    SD_Read_Sectors(2,0,readbuffer);
+//    SD_Read_Sector(1,readbuffer);
+//  }
+  init_lcd();
+  
+  I2C_Configuration();
+  Init_DCMI_GPIO();
+  DCMI_Init_Pra();
+  
+  
+  
+  for(int a = 0 ; a < sizeof(Cmd_5150)/2;a++)
+  {
+    I2C_Stand_Write(0XB8,Cmd_5150[a][0],&Cmd_5150[a][1],1);
+  }
+  //I2C_Write(I2C1,0XA0,10,readbuffer,20);
+  //  I2C_Read(I2C1,0XA0,10,readbuffer+20,10);
+ I2C_Stand_Read(readbuffer);
+  
+  
+  DCMI_Cmd(ENABLE); 
+
+  DMA_Cmd(DMA2_Stream1, ENABLE); 
+  DCMI_CaptureCmd(ENABLE);
+  
+  while(1)
+  {
+
+    
+//		DMA_Cmd(DMA2_Stream1, ENABLE); 
+//		DCMI_Cmd(ENABLE); 
+//                start_bit = 0;
+//      for(i = 0; i<32000 ;i++)
+//      {
+//       viod_buffer[i] = 0xff;
+//       
+//      }
+      
+    }
+    
+  
+  
+}
+
+
+
+

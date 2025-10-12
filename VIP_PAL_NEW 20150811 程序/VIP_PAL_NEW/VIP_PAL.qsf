@@ -1,0 +1,151 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2012 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 32-bit
+# Version 12.0 Build 178 05/31/2012 SJ Full Version
+# Date created = 07:30:49  April 26, 2015
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		VIP_PAL_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE10E22C8
+set_global_assignment -name TOP_LEVEL_ENTITY action_vip
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 12.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "07:30:49  APRIL 26, 2015"
+set_global_assignment -name LAST_QUARTUS_VERSION 14.1.0
+set_global_assignment -name EDA_SIMULATION_TOOL "<None>"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT NONE -section_id eda_simulation
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VERILOG_FILE src/wr_sdram.v
+set_global_assignment -name VERILOG_FILE src/bt656_rx.v
+set_global_assignment -name QIP_FILE src/pll_xscale.qip
+set_global_assignment -name QIP_FILE src/mult6x6.qip
+set_global_assignment -name QIP_FILE src/fifo_wrbuffer_512x16.qip
+set_global_assignment -name QIP_FILE src/fifo_display_1024x16.qip
+set_global_assignment -name VERILOG_FILE src/video_process.v
+set_global_assignment -name VERILOG_FILE src/VGA.v
+set_global_assignment -name VERILOG_FILE src/svga_defines.v
+set_global_assignment -name VERILOG_FILE src/sdram_if.v
+set_global_assignment -name VERILOG_FILE src/rd_sdram.v
+set_global_assignment -name VERILOG_FILE src/odd_div.v
+set_global_assignment -name VERILOG_FILE src/mydefines.v
+set_global_assignment -name VERILOG_FILE src/i2c_controller.v
+set_global_assignment -name VERILOG_FILE src/i2c_av_config.v
+set_global_assignment -name VERILOG_FILE src/csc.v
+set_global_assignment -name VERILOG_FILE src/action_vip.v
+set_location_assignment PIN_32 -to sdram_addr[0]
+set_location_assignment PIN_31 -to sdram_addr[1]
+set_location_assignment PIN_30 -to sdram_addr[2]
+set_location_assignment PIN_28 -to sdram_addr[3]
+set_location_assignment PIN_128 -to sdram_addr[4]
+set_location_assignment PIN_129 -to sdram_addr[5]
+set_location_assignment PIN_126 -to sdram_addr[6]
+set_location_assignment PIN_127 -to sdram_addr[7]
+set_location_assignment PIN_124 -to sdram_addr[8]
+set_location_assignment PIN_125 -to sdram_addr[9]
+set_location_assignment PIN_33 -to sdram_addr[10]
+set_location_assignment PIN_120 -to sdram_addr[11]
+set_location_assignment PIN_58 -to sdram_data[0]
+set_location_assignment PIN_55 -to sdram_data[1]
+set_location_assignment PIN_54 -to sdram_data[2]
+set_location_assignment PIN_53 -to sdram_data[3]
+set_location_assignment PIN_52 -to sdram_data[4]
+set_location_assignment PIN_51 -to sdram_data[5]
+set_location_assignment PIN_50 -to sdram_data[6]
+set_location_assignment PIN_49 -to sdram_data[7]
+set_location_assignment PIN_112 -to sdram_data[8]
+set_location_assignment PIN_111 -to sdram_data[9]
+set_location_assignment PIN_110 -to sdram_data[10]
+set_location_assignment PIN_106 -to sdram_data[11]
+set_location_assignment PIN_105 -to sdram_data[12]
+set_location_assignment PIN_104 -to sdram_data[13]
+set_location_assignment PIN_103 -to sdram_data[14]
+set_location_assignment PIN_101 -to sdram_data[15]
+set_location_assignment PIN_75 -to vga_vs
+set_location_assignment PIN_59 -to vga_hs
+set_location_assignment PIN_76 -to vga_clk
+set_location_assignment PIN_77 -to vga_blank
+set_location_assignment PIN_11 -to vga_rgb[2]
+set_location_assignment PIN_10 -to vga_rgb[3]
+set_location_assignment PIN_7 -to vga_rgb[4]
+set_location_assignment PIN_100 -to vga_rgb[7]
+set_location_assignment PIN_99 -to vga_rgb[8]
+set_location_assignment PIN_98 -to vga_rgb[9]
+set_location_assignment PIN_86 -to vga_rgb[12]
+set_location_assignment PIN_85 -to vga_rgb[13]
+set_location_assignment PIN_84 -to vga_rgb[14]
+set_location_assignment PIN_115 -to sdr_cke[0]
+set_location_assignment PIN_119 -to sdr_clk[0]
+set_location_assignment PIN_23 -to clk
+set_location_assignment PIN_88 -to bt656_clk_27m
+set_location_assignment PIN_113 -to sdr_dqm[0]
+set_location_assignment PIN_46 -to sdr_dqm[1]
+set_location_assignment PIN_39 -to sdr_cs[0]
+set_location_assignment PIN_43 -to sdr_cas[0]
+set_location_assignment PIN_38 -to sdr_ba[0]
+set_location_assignment PIN_34 -to sdr_ba[1]
+set_location_assignment PIN_91 -to reset_n
+set_location_assignment PIN_44 -to sdr_we[0]
+set_location_assignment PIN_42 -to sdr_ras[0]
+set_location_assignment PIN_60 -to bt656_data[0]
+set_location_assignment PIN_64 -to bt656_data[1]
+set_location_assignment PIN_65 -to bt656_data[2]
+set_location_assignment PIN_66 -to bt656_data[3]
+set_location_assignment PIN_67 -to bt656_data[4]
+set_location_assignment PIN_68 -to bt656_data[5]
+set_location_assignment PIN_69 -to bt656_data[6]
+set_location_assignment PIN_70 -to bt656_data[7]
+set_location_assignment PIN_141 -to i2c_clk
+set_location_assignment PIN_142 -to i2c_data
+set_location_assignment PIN_83 -to vga_rgb[15]
+set_location_assignment PIN_87 -to vga_rgb[10]
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name DEVICE_FILTER_PACKAGE TQFP
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 144
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DATA0_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DATA1_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_FLASH_NCE_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DCLK_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name QIP_FILE core/pll_27m.qip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
