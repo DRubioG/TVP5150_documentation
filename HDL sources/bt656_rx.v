@@ -1,18 +1,8 @@
 // ================================================================================
-//20150811 完善
-//1、vip 板卡测试ok
-//2、ep4ce6+sdram+vga
-//3、qii 14.1
-//4、编译好的jic或sof可以直接子啊vip101上使用
-//参考博客地址 http://www.cnblogs.com/ccjt/p/4456474.html
-//店铺地址 https://ccjt.taobao.com/
-// 主营：摄像头、视频采集、视频处理、fpga、usb等评估套件、高速相机、物联网周边
-// 技术交流qq群：层层惊涛 26210916
-// 群主：奇迹再现
 // (c) 2004 Altera Corporation. All rights reserved.
 // Altera products are protected under numerous U.S. and foreign patents, maskwork
 // rights, copyrights and other intellectual property laws.
-// 
+//
 // This reference design file, and your use thereof, is subject to and governed
 // by the terms and conditions of the applicable Altera Reference Design License
 // Agreement (either as signed by you, agreed by you upon download or as a
@@ -21,7 +11,7 @@
 // and conditions between you and Altera Corporation.  In the event that you do
 // not agree with such terms and conditions, you may not use the reference design
 // file and please promptly destroy any copies you have made.
-// 
+//
 // This reference design file is being provided on an "as-is" basis and as an
 // accommodation and therefore all warranties, representations or guarantees of
 // any kind (whether express, implied or statutory) including, without limitation,
@@ -37,24 +27,24 @@
 `timescale 1ns/1ns
 
 module bt656_rx (
-		 clk1,
-		 reset_n,
-//		 Gclk,
-		 din,
+    clk1,
+    reset_n,
+    //		 Gclk,
+    din,
 
-		 lcc2,
-		 v_blank,
-		 field,
-		 v,
-	     h,
-		 y,
-		 cb,
-		 cr,
-		 line
-		 );
+    lcc2,
+    v_blank,
+    field,
+    v,
+    h,
+    y,
+    cb,
+    cr,
+    line
+  );
 
   input clk1;		// 27 MHz
- // input Gclk;
+  // input Gclk;
   input reset_n;
 
   input [7:0] din;
@@ -75,34 +65,34 @@ module bt656_rx (
 
 
   parameter idle	= 2'b00,
-	    ff		= 2'b01,
-	    ff00	= 2'b10,
-	    ff0000	= 2'b11;
+            ff		= 2'b01,
+            ff00	= 2'b10,
+            ff0000	= 2'b11;
 
   always @(posedge clk or negedge reset_n)
     if (~reset_n)
       time_ref <= idle;
     else
-      case (time_ref)
-	idle:
-	  if (din == 8'hff)
-	    time_ref <= ff;
+    case (time_ref)
+      idle:
+        if (din == 8'hff)
+          time_ref <= ff;
 
-	ff:
-	  if (din == 8'h0)
-	    time_ref <= ff00;
-	  else
-	    time_ref <= idle;
+      ff:
+        if (din == 8'h0)
+          time_ref <= ff00;
+        else
+          time_ref <= idle;
 
-	ff00:
-	  if (din == 8'h0)
-	    time_ref <= ff0000;
-	  else
-	    time_ref <= idle;
+      ff00:
+        if (din == 8'h0)
+          time_ref <= ff0000;
+        else
+          time_ref <= idle;
 
-	ff0000:
-	  time_ref <= idle;
-      endcase
+      ff0000:
+        time_ref <= idle;
+    endcase
 
   wire 	    timing_ref = (time_ref == ff0000);
 
@@ -113,7 +103,7 @@ module bt656_rx (
     else
       timing_ref_r <= timing_ref;
 
-   wire   clk = clk1;
+  wire   clk = clk1;
 
   //---------------------------------------------------------------------------
   // blanking flags
@@ -121,13 +111,13 @@ module bt656_rx (
   reg 	    field;
   reg 	    v;
   reg 	    h;
-  
+
   always @(posedge clk or negedge reset_n)
     if (~reset_n)
       field <= 1'b0;
     else if (timing_ref)
       field <= din[6];
-  
+
   always @(posedge clk or negedge reset_n)
     if (~reset_n)
       v <= 1'b0;
@@ -135,7 +125,7 @@ module bt656_rx (
       v <= din[5];
 
   wire 	    v_blank = v;
-  
+
   always @(posedge clk or negedge reset_n)
     if (~reset_n)
       h <= 1'b0;
@@ -153,13 +143,13 @@ module bt656_rx (
       input_phase <= 2'b0;
     else
       input_phase <= input_phase + 2'b01;
-      
+
   reg	    lcc2;
   always @(posedge clk or negedge reset_n)
     if (~reset_n)
-	  lcc2 <= 1'b0;
+      lcc2 <= 1'b0;
     else
-	lcc2 <= ~lcc2;
+      lcc2 <= ~lcc2;
   //
   reg [7:0] y_reg;
   always @(posedge clk or negedge reset_n)
@@ -167,14 +157,14 @@ module bt656_rx (
       y_reg <= 8'b0;
     else if (input_phase[0])
       y_reg <= din;
-  
+
   reg [7:0] cb_reg;
   always @(posedge clk or negedge reset_n)
     if (~reset_n)
       cb_reg <= 8'b0;
     else if (input_phase == 2'b00)
       cb_reg <= din;
-  
+
   reg [7:0] cr_reg;
   always @(posedge clk or negedge reset_n)
     if (~reset_n)
@@ -189,14 +179,14 @@ module bt656_rx (
       y <= 8'b0;
     else if (input_phase[0] & ~sav & ~timing_ref)
       y <= y_reg;
-  
+
   reg [7:0] cb;
   always @(posedge clk or negedge reset_n)
     if (~reset_n)
       cb <= 8'b0;
     else if ((input_phase == 2'b11) & ~timing_ref)
       cb <= cb_reg;
-  
+
   reg [7:0] cr;
   always @(posedge clk or negedge reset_n)
     if (~reset_n)
@@ -221,5 +211,5 @@ module bt656_rx (
     else if (timing_ref_r & sav)
       line <= line + 9'b1;
 
-  
+
 endmodule	// bt656_rx
